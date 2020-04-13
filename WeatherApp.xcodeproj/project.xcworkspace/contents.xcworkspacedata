@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:WhetherApp.xcodeproj">
+      location = "self:/Users/mokuneev/Desktop/swift projects/TestTask/WhetherApp/WeatherApp.xcodeproj">
    </FileRef>
 </Workspace>
