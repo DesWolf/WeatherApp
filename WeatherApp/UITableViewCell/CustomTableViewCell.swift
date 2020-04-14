@@ -16,7 +16,13 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var minTempLabel: UILabel!
     @IBOutlet weak var maxTempLabel: UILabel!
     
-    override var reuseIdentifier: String? {
-       return "CustomTableViewCell"
+    func configure(with weatherData: WeatherData){
+            
+        self.cityLabel.text = weatherData.name
+//        self.timeLabel.text = weatherData.main?.humidity
+        self.currentTempLabel.text = "\(weatherData.main?.temp ?? 0) C"
+        self.minTempLabel.text = "\(weatherData.main?.temp_min ?? 0) C"
+        self.maxTempLabel.text = "\(weatherData.main?.temp_max ?? 0) C"
     }
+    
 }

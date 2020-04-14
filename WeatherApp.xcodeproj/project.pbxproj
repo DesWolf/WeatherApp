@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		9E0E7F1F2445C69C0069F9DF /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0E7F1E2445C69C0069F9DF /* MainView.swift */; };
-		9E8968EA2445CC76008FC17F /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E8968E92445CC76008FC17F /* CustomTableViewCell.xib */; };
 		9E8968EC2445D047008FC17F /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8968EB2445D047008FC17F /* CustomTableViewCell.swift */; };
 		9EC57D682444C25500F4C79A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC57D672444C25500F4C79A /* AppDelegate.swift */; };
 		9EC57D6A2444C25500F4C79A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC57D692444C25500F4C79A /* SceneDelegate.swift */; };
@@ -23,7 +22,6 @@
 
 /* Begin PBXFileReference section */
 		9E0E7F1E2445C69C0069F9DF /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		9E8968E92445CC76008FC17F /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		9E8968EB2445D047008FC17F /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		9EC57D642444C25500F4C79A /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EC57D672444C25500F4C79A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -52,7 +50,6 @@
 		9E8968ED2445D050008FC17F /* UITableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				9E8968E92445CC76008FC17F /* CustomTableViewCell.xib */,
 				9E8968EB2445D047008FC17F /* CustomTableViewCell.swift */,
 			);
 			path = UITableViewCell;
@@ -192,7 +189,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9EC57D742444C25800F4C79A /* LaunchScreen.storyboard in Resources */,
-				9E8968EA2445CC76008FC17F /* CustomTableViewCell.xib in Resources */,
 				9EC57D852444D10C00F4C79A /* Default-568h@2x.png in Resources */,
 				9EC57D712444C25800F4C79A /* Assets.xcassets in Resources */,
 				9EC57D6F2444C25500F4C79A /* Main.storyboard in Resources */,

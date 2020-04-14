@@ -17,6 +17,7 @@ class MainView: UIView {
         super.awakeFromNib()
         self.firtInitialization()
         self.setupConstraints()
+        self.tableView.rowHeight = 44.0
     }
     
     private func firtInitialization() {
