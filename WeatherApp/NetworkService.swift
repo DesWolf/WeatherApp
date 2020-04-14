@@ -10,11 +10,6 @@ import UIKit
 
 struct NetworkService {
     
-    private init() {
-    }
-    
-    static let shared: NetworkService = NetworkService()
-    
      // MARK: Network
     static func fetchWeather(city: String, completion: @escaping (WeatherData?) -> ()) {
         
@@ -24,27 +19,8 @@ struct NetworkService {
         urlComponents.path = "/data/2.5/weather"
         urlComponents.queryItems = [URLQueryItem(name: "q", value: city),
                                     URLQueryItem(name: "appid", value: "5413b464dd02b162651d5d7f9c6f7174")]
-        
-        
         var request = URLRequest(url: urlComponents.url!)
         request.httpMethod = "GET"
-//        let task = URLSession(configuration: .default)
-//        task.dataTask(with: request) { (data, responce, error) in
-//            if error == nil {
-//                let decoder = JSONDecoder()
-//                let decoderModel: WeatherData?
-//                if data != nil {
-//                    decoderModel = try? decoder.decode(WeatherData.self, from: data!)
-//                    print(decoderModel)
-//                completion(decoderModel)
-//                }
-//            } else {
-//                print(error as Any)
-//            }
-//        }.resume()
-//    }
-    
-
         URLSession.shared.dataTask(with: request) { (data, responce, error) in
             if let data = data {
                 do {
@@ -58,7 +34,6 @@ struct NetworkService {
                 } catch let error {
                     DispatchQueue.main.async {
                         print ("Error serialization JSON", error)
-//                        completion()
                     }
                 }
             } else {
@@ -67,7 +42,6 @@ struct NetworkService {
                 }
             }
         }.resume()
-    
     }
 
     // MARK: Network Alert

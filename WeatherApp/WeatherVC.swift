@@ -10,19 +10,10 @@ import UIKit
 
 class WeatherVC: UIViewController  {
     
-    private var timer = Timer()
-//    private var contentView: MainView {
-//        return self.view as! MainView
-//    }
-//    private var weatherData: WeatherData! {
-//        didSet {
-//            DispatchQueue.main.async {
-//                self.contentView.tableView.reloadData()
-//            }
-//        }
-//    }
+    
     @IBOutlet weak var tableView: UITableView!
-    private var weatherData = WeatherData()
+    private var weatherData = [WeatherData]()
+    private var timer = Timer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +32,7 @@ extension WeatherVC: UISearchResultsUpdating {
         if city != "" {
             timer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false, block: { (timer) in
                 NetworkService.fetchWeather(city: city) { (model) in
-                    self.weatherData = model
+                    self.weatherData.append(model!)
                     print(self.weatherData)
                 }
             })
@@ -53,8 +44,10 @@ extension WeatherVC: UISearchResultsUpdating {
 extension WeatherVC {
     func fetchDataMoscow() {
         NetworkService.fetchWeather(city: "Moscow") { (model) in
-        self.weatherData = model
-        
+            self.weatherData.append(model!)
+        self.tableView.reloadData()
+        self.tableView.tableFooterView = UIView()
+            print(self.weatherData)
     }
 }
 }
@@ -79,16 +72,14 @@ extension WeatherVC: UITableViewDataSource, UITableViewDelegate {
         return 90
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return weatherData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell") as! CustomTableViewCell
-        cell.configure(with: weatherData)
-        cell.delegate = self
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomTableViewCell
+        let weather = weatherData[indexPath.row]
+        cell.configure(with: weather)
         
-        
-        print(self.weatherData?.main?.temp_max)
         return cell
     }
 }
