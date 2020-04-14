@@ -8,29 +8,37 @@
 
 import Foundation
 
-class WeatherData: Codable {
-    var coord: Coord?
-    var weather: Weather?
-    var base: String?
-    var main: Main?
-    var dt: Int?
+struct WeatherData: Decodable {
+    let coord: Coord?
+    let base: String?
+    let main: Main?
+    let visibility: Int?
+    let wind: Wind?
+    let clouds: Clouds?
+    let name: String?
+    let cod: Int
 }
 
-class Coord: Codable {
-    var lon: Double?
-    var lat: Double?
+struct Coord: Decodable {
+    let lon: Double?
+    let lat: Double?
 }
 
-class Weather: Codable {
-    var id: Int?
-    var main: String?
-    var description: String?
-    var icon: String?
+struct Main: Decodable {
+    let temp: Float?
 }
 
-class Main: Codable {
-    var temp: Float?
+struct Wind: Decodable {
+    let speed: Int?
+    let deg: Int?
 }
+
+struct Clouds: Decodable {
+    let all: Int?
+}
+
+
+
 
 //    {"coord":
 //    {"lon":37.62,"lat":55.75},
